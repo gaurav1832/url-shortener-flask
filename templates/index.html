@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} URL Shortener in python and flask {% endblock %}</h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="url">Enter URL</label>
+        <input type="text" name="url"
+               placeholder="Enter URL you want to shorten" class="form-control"
+               value="{{ request.form['url'] }}" autofocus></input>
+    </div>
+
+        <style>
+            body{
+            background: #de8d;
+            font-family: "Lucida Console", "Courier New", monospace;
+            font-weight: 700;
+            }
+
+            h1{
+            text-align: center;
+            }
+
+            label{
+            margin-top: 50px;
+            }
+            .btn{
+            background: black;
+            }
+        </style>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+
+    {% if short_url %}
+    <hr>
+    <h5> Your short link is: {{ short_url }}</h5>
+    {% endif %}
+{% endblock %}
+
